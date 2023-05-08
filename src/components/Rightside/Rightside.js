@@ -1,12 +1,13 @@
 import React from 'react';
+import './styles.scss';
 
-function Rightside() {
+function Rightside(props) {
     return (
         <div className="rightside">
             <div className="rightside__inner">
                 <div className="rightside__title-wrapper">
                     <h2 className="rightside__title">Корзина</h2>
-                    <img className="rightside__close-btn" src="img/btn-remove.svg" alt="Close cart" />
+                    <img onClick={props.onClose} className="rightside__close-btn" src="img/btn-remove.svg" alt="Close cart" />
                 </div>
                 <div className="rightside__cart-items">
                     <div className="rightside__cart-item">

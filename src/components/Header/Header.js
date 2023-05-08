@@ -1,13 +1,14 @@
 import React from 'react';
+import './styles.scss';
 
-function Header() {
+function Header(props) {
     return (
         <header className="header">
             <div className="header__left">
                 <img className="header__logo" src="/img/logo.png" alt="Logo" />
                 <div className="header__info">
                     <h3 className="header__title">
-                        React Sneaker
+                        React Sneakers
                     </h3>
                     <p className="header__text">
                         Магазин лучших кроссовок
@@ -16,7 +17,7 @@ function Header() {
             </div>
 
             <ul className="header__list">
-                <li className="header__item">
+                <li onClick={props.onClickCart} className="header__item">
                     <img className="header__icon" src="/img/cart.svg" alt="Cart" />
                     <span>1205 руб.</span>
                 </li>

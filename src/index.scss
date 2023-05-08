@@ -1,10 +1,40 @@
+// General //
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
 body {
-  background-color: aqua;
+  background-color: #E7F6FF;
   margin: 0;
   font-family: 'Inter', sans-serif;
   color: #000000;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.green-btn {
+  margin: 0 auto;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  border-radius: 18px;
+  background-color: #9DD458;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: lighten($color: #9DD458, $amount: 7);
+  }
+
+  &:active {
+    background-color: darken($color: #9DD458, $amount: 7);
+  }
+
 }
 
 .wrapper {
@@ -14,6 +44,8 @@ body {
   max-width: 1080px;
   margin: 50px auto;
 }
+
+// Header //
 
 .header {
 
@@ -72,19 +104,45 @@ body {
   }
 }
 
+// Product cards //
 .content {
   padding: 40px;
 
-  &__cards {
+  &__top {
+    margin-bottom: 40px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &__title {
     margin: 0;
-    margin-bottom: 40px;
     font-weight: 700;
     font-size: 32px;
     line-height: 39px;
+  }
+
+  &__search {
+    padding: 15px 0 15px 18px;
+    border: 1px solid #F3F3F3;
+    border-radius: 10px;
+    width: 250px;
+  }
+
+  &__input {
+    border: none;
+    padding-left: 14px;
+
+    &::placeholder {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      color: #C4C4C4;
+    }
+  }
+
+  &__cards {
+    display: flex;
   }
 
   &__card {
@@ -93,7 +151,23 @@ body {
     border: 1px solid #F3F3F3;
     border-radius: 40px;
     width: 210px;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      border: 1px solid #F8F8F8;
+      box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.05);
+      transform: translateY(-5px);
+    }
   }
+
+  &__btn {
+    background-color: transparent;
+    border: none;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+
+  &__heart {}
 
   &__img {
     width: 133px;
@@ -130,18 +204,147 @@ body {
     }
   }
 
-  &__btn {
-    background-color: #ffffff;
-    border: 2px solid #F2F2F2;
-    box-sizing: border-box;
-    border-radius: 8px;
+  &__btn-img {
     width: 32px;
     height: 32px;
+  }
+}
+
+// Rightside menu //
+
+.rightside {
+  
+  display: none;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    position: absolute;
+    width: 385px;
+    height: 100%;
+    right: 0;
+    background: #FFFFFF;
+    box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  &__title-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  &__close-btn {
     cursor: pointer;
   }
 
-  &__btn-img {
-    width: 11px;
-    height: 11px;
+  &__cart-items {
+    margin-bottom: 30px;
+    flex: 1;
+    overflow: auto;
+  }
+
+  &__cart-item {
+    padding: 16px 19px 30px;
+    width: 325px;
+    border: 1px solid #F3F3F3;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__cart-item+.rightside__cart-item {
+    margin-top: 20px;
+  }
+
+  &__cart-img {
+    margin-right: 20px;
+    width: 70px;
+  }
+
+  &__cart-inner {
+    margin-right: 20px;
+    max-width: 150px;
+
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+    }
+
+    span {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+
+  &__remove-btn {
+    opacity: 0.5;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__list {
+    margin-bottom: 24px;
+  }
+
+  &__list-item {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-end;
+
+    span {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    span:nth-child(3) {
+      font-weight: 600;
+    }
+  }
+
+  &__list-line {
+    margin: 0 7px;
+    flex: 1;
+    height: 1px;
+    border-bottom: 1px dashed #DFDFDF;
+    position: relative;
+    top: -4px;
+  }
+
+  &__btn {
+    position: relative;
+  }
+
+  &__btn-arrow {
+    position: absolute;
+    right: 33px;
+    top: 20px;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      transform: translateX(5px);
+    }
   }
 }

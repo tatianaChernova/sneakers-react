@@ -1,16 +1,28 @@
 import React from 'react';
 import './styles.scss';
 
-function Rightside(props) {
+function Rightside({ onClose, items = [] }) {
     return (
         <div className="rightside">
             <div className="rightside__inner">
                 <div className="rightside__title-wrapper">
                     <h2 className="rightside__title">Корзина</h2>
-                    <img onClick={props.onClose} className="rightside__close-btn" src="img/btn-remove.svg" alt="Close cart" />
+                    <img onClick={onClose} className="rightside__close-btn" src="img/btn-remove.svg" alt="Close cart" />
                 </div>
                 <div className="rightside__cart-items">
-                    <div className="rightside__cart-item">
+                    {items.map((obj) => (
+                        <div className="rightside__cart-item">
+                            <img className="rightside__cart-img" src={obj.image} alt="Sneakers" />
+                            <div className="rightside__cart-inner">
+                                <p>{obj.title}</p>
+                                <span>{obj.price}</span>
+                            </div>
+                            <img className="rightside__remove-btn" src="img/btn-remove.svg" alt="Remove from cart" />
+                        </div>
+                    ))}
+
+
+                    {/* <div className="rightside__cart-item">
                         <img className="rightside__cart-img" src="img/sneakers/img-2.jpg" alt="Sneakers" />
                         <div className="rightside__cart-inner">
                             <p>
@@ -33,18 +45,7 @@ function Rightside(props) {
                             </span>
                         </div>
                         <img className="rightside__remove-btn" src="img/btn-remove.svg" alt="Remove from cart" />
-                    </div> <div className="rightside__cart-item">
-                        <img className="rightside__cart-img" src="img/sneakers/img-2.jpg" alt="Sneakers" />
-                        <div className="rightside__cart-inner">
-                            <p>
-                                Мужские Кроссовки Nike Air Max 270
-                            </p>
-                            <span>
-                                12 999 руб.
-                            </span>
-                        </div>
-                        <img className="rightside__remove-btn" src="img/btn-remove.svg" alt="Remove from cart" />
-                    </div>
+                    </div> */}
                 </div>
 
                 <ul className="rightside__list">

@@ -29,7 +29,9 @@
         cursor: pointer;
     }
 
-    &__heart {}
+    &__heart {
+        background-color: transparent;
+    }
 
     &__img {
         width: 133px;

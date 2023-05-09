@@ -5,7 +5,7 @@ function Header(props) {
     return (
         <header className="header">
             <div className="header__left">
-                <img className="header__logo" src="/img/logo.png" alt="Logo" />
+                <img className="header__logo" src="./../../src/img/logo.png" alt="Logo" />
                 <div className="header__info">
                     <h3 className="header__title">
                         React Sneakers

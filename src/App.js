@@ -4,8 +4,6 @@ import Header from "./components/Header/Header";
 import Rightside from "./components/Rightside/Rightside";
 import './reset.css';
 
-
-
 function App() {
 
   const [items, setItems] = React.useState([]);
@@ -18,7 +16,7 @@ function App() {
         return res.json();
       }).then(json => {
         setItems(json);
-      });
+      }); 
     }, []);
 
   const onAddToCart = (obj) => {

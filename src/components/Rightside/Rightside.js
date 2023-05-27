@@ -32,7 +32,7 @@ function Rightside({ onClose, onRemove, items = [], opened }) {
 
             for (let i = 0; i < cartItems.length; i++) {
                 const item = cartItems[i];
-                await axios.delete(`http://localhost:3001/cart` + item.id);
+                await axios.delete(`http://localhost:3001/cart/${item.id}`);
                 await delay();
             }
         }

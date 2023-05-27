@@ -45,7 +45,7 @@ function App() {
 
   const onAddToCart = async (obj) => {
     try {
-      if (cartItems.find((item) => Number(item.id) === Number(obj.id))) {
+      if (cartItems.find((item) => Number(item.parentId) === Number(obj.id))) {
         setCartItems((prev) => prev.filter((item) => Number(item.id) !== Number(obj.id)));
         await axios.delete(`http://localhost:3001/cart/${obj.id}`);
 
@@ -93,7 +93,6 @@ function App() {
   const isItemAdded = (id) => {    
     return cartItems.some((obj) => Number(obj.parentId) === Number(id));
   };
-  console.log (isItemAdded(3));
 
   return (
     <div v-if="items !== null">

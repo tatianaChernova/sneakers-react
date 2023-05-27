@@ -8,12 +8,13 @@ function Home({ items, searchValue, setSearchValue, onChangeSearchInput, onAddTo
     const renderItems = () => {
 
         const filteredItems = items.filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()));
-        
+
         return (isLoading ? [...Array(8).fill(<Card loading={isLoading} />)] : filteredItems).map((item, index = 0) => {
             return (
                 <Card
                     key={index}
                     index={index}
+                    id={item.id}
                     name={item.name}
                     price={item.price}
                     parentId={item.parentId}

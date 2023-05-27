@@ -1,7 +1,5 @@
 // General //
 
-
-
 * {
   font-family: 'Inter', sans-serif;
 }
@@ -45,6 +43,11 @@ body {
     background-color: darken($color: #9DD458, $amount: 7);
   }
 
+  &:disabled {
+    background-color: #bebebe;
+    cursor: normal;
+  }
+
 }
 
 .content {
@@ -70,8 +73,17 @@ body {
     border-radius: 10px;
     width: 235px;
     display: flex;
+    position: relative;
   }
 
+  &__search-clear {
+    position: absolute;
+    right: 15px;
+    top: 17px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+  }
 
   &__input {
     border: none;

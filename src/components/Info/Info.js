@@ -1,8 +1,8 @@
+//info part for empty cart and finished order
 import React from 'react';
 import AppContext from '../../context';
 import arrow from '../../img/arrow.svg';
 import './styles.scss';
-
 
 const Info = ({ image, title, description }) => {
     const { setCartOpened } = React.useContext(AppContext);

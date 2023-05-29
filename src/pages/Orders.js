@@ -9,8 +9,7 @@ function Orders() {
     React.useEffect(() => {
         (async () => {
             try {
-                const { data } = await axios.get('http://localhost:3001/orders');
-                //setOrders(data.map((obj) => obj.items).flat());
+                const { data } = await axios.get('https://64636d914dca1a66135d9230.mockapi.io/orders');
                 setOrders(data.reduce((prev, obj) => [...prev, ...obj.items], []));
                 setIsLoading(false);
             } catch {
@@ -31,7 +30,6 @@ function Orders() {
                 <div className="content__cards">
                     {(isLoading ? [...Array(8).fill(<Card loading={isLoading} />)] : orders).map((item, index = 0) => {
                         return (
-                            //item.image && require(`./../../src/img/sneakers/${item.image}.jpg`)
                             <Card
                                 key={index}
                                 index={index}

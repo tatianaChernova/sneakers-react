@@ -23,7 +23,7 @@ function Rightside({ onClose, onRemove, items = [], opened }) {
     const onClickOrder = async () => {
         try {
             setIsLoading(true);
-            const { data } = await axios.post(`http://localhost:3001/orders`, {
+            const { data } = await axios.post(`https://64636d914dca1a66135d9230.mockapi.io/orders`, {
                 items: cartItems,
             });
             setOrderId(data.id);
@@ -32,7 +32,7 @@ function Rightside({ onClose, onRemove, items = [], opened }) {
 
             for (let i = 0; i < cartItems.length; i++) {
                 const item = cartItems[i];
-                await axios.delete(`http://localhost:3001/cart/${item.id}`);
+                await axios.delete(`https://6459d48695624ceb21f076f5.mockapi.io/cart/${item.id}`);
                 await delay();
             }
         }

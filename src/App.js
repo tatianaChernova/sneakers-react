@@ -26,9 +26,9 @@ function App() {
     async function fetchData() {
       try {
         const [cartResponse, favoritesResponse, itemsResponse] = await Promise.all([
-          axios.get('http://localhost:3001/cart'),
-          axios.get('http://localhost:3001/favorites'),
-          axios.get('http://localhost:3001/items')
+          axios.get('https://6459d48695624ceb21f076f5.mockapi.io/cart'),
+          axios.get('https://6459d48695624ceb21f076f5.mockapi.io/favorites'),
+          axios.get('https://my-json-server.typicode.com/tatianaChernova/data/items')
         ]);
 
         setIsLoading(false);
@@ -48,10 +48,10 @@ function App() {
       const findItem = cartItems.find((item) => Number(item.parentId) === Number(obj.id));
       if (findItem) {
         setCartItems((prev) => prev.filter((item) => Number(item.parentId) !== Number(obj.id)));
-        await axios.delete(`http://localhost:3001/cart/${findItem.id}`);
+        await axios.delete(`https://6459d48695624ceb21f076f5.mockapi.io/cart/${findItem.id}`);
       } else {
         setCartItems((prev) => [...prev, obj]);
-        const { data } = await axios.post(`http://localhost:3001/cart`, obj);
+        const { data } = await axios.post(`https://6459d48695624ceb21f076f5.mockapi.io/cart`, obj);
         setCartItems((prev) =>
           prev.map((item) => {
             if (item.parentId === data.parentId) {
@@ -73,7 +73,7 @@ function App() {
 
   const onRemoveItem = (id) => {
     try {
-      axios.delete(`http://localhost:3001/cart/${id}`);
+      axios.delete(`https://6459d48695624ceb21f076f5.mockapi.io/cart/${id}`);
       setCartItems((prev) => prev.filter((item) => Number(item.id) !== Number(id)));
     } catch (error) {
       alert("Не удалось удалить из корзины");
@@ -84,10 +84,10 @@ function App() {
   const onAddToFavorite = async (obj) => {
     try {
       if (favorites.find(favObj => Number(favObj.id) === Number(obj.id))) {
-        axios.delete(`http://localhost:3001/favorites/${obj.id}`);
+        axios.delete(`https://6459d48695624ceb21f076f5.mockapi.io/favorites/${obj.id}`);
         setFavorites((prev) => prev.filter((item) => Number(item.id) !== Number(obj.id)));
       } else {
-        const { data } = await axios.post(`http://localhost:3001/favorites`, obj);
+        const { data } = await axios.post(`https://6459d48695624ceb21f076f5.mockapi.io/favorites`, obj);
         setFavorites((prev) => [...prev, data]);
       }
     }

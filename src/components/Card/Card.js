@@ -26,7 +26,7 @@ function Card({ id, name, image, price, onClickFavorite, onClickAdd, favorited =
 
     return (
         <div className="content__card">
-            {
+            { //skeleton for downloading
                 loading ? <ContentLoader
                     speed={2}
                     width={160}

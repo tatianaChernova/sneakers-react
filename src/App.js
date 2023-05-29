@@ -45,13 +45,24 @@ function App() {
 
   const onAddToCart = async (obj) => {
     try {
-      if (cartItems.find((item) => Number(item.parentId) === Number(obj.id))) {
-        setCartItems((prev) => prev.filter((item) => Number(item.id) !== Number(obj.id)));
-        await axios.delete(`http://localhost:3001/cart/${obj.id}`);
-
+      const findItem = cartItems.find((item) => Number(item.parentId) === Number(obj.id));
+      if (findItem) {
+        setCartItems((prev) => prev.filter((item) => Number(item.parentId) !== Number(obj.id)));
+        await axios.delete(`http://localhost:3001/cart/${findItem.id}`);
       } else {
         setCartItems((prev) => [...prev, obj]);
-        await axios.post(`http://localhost:3001/cart`, obj);
+        const { data } = await axios.post(`http://localhost:3001/cart`, obj);
+        setCartItems((prev) =>
+          prev.map((item) => {
+            if (item.parentId === data.parentId) {
+              return {
+                ...item,
+                id: data.id,
+              };
+            }
+            return item;
+          })
+        );
       }
     }
     catch (error) {
@@ -90,7 +101,7 @@ function App() {
     setSearchValue(event.target.value);
   };
 
-  const isItemAdded = (id) => {    
+  const isItemAdded = (id) => {
     return cartItems.some((obj) => Number(obj.parentId) === Number(id));
   };
 

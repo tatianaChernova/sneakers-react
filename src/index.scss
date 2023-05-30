@@ -24,7 +24,7 @@ body {
 .green-btn {
   margin: 0 auto;
   padding: 18px;
-  width: 100%;
+  width: 325px;
   border: none;
   border-radius: 18px;
   background-color: #9DD458;
@@ -48,6 +48,49 @@ body {
     cursor: normal;
   }
 
+}
+
+.slider {
+  &__wrapper {
+    margin-bottom: 39px;
+    display: flex;
+
+  }
+
+  &__left {
+    background-color: #F4EFE9;
+    border-top-left-radius: 20px 20px;
+    border-bottom-left-radius: 20px 20px;
+  }
+
+  &__logo {
+    margin-bottom: 32px;
+    padding-left: 20px;
+    padding-top: 16px;
+  }
+
+  &__title {
+    margin-bottom: 11px;
+    padding-left: 61px;
+    font-size: 38px;
+    line-height: 46px;
+    font-weight: 700;
+    color: #8BB43C;
+
+    span {
+      color: #000000;
+    }
+  }
+
+  &__btn {
+    margin-left: 61px;
+    width: 178px;
+    height: 52px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+  }
 }
 
 .content {

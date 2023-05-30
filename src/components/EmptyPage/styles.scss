@@ -1,0 +1,49 @@
+.empty-page {
+  
+    &__cart {
+        margin-top: 45px;
+        margin-bottom: 45px;
+    }
+
+    &__img {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 21px;
+        width: 70px;
+    }
+
+    &__title {
+        margin-bottom: 11px;
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 27px;
+        text-align: center;
+    }
+
+    &__text {
+        margin: 0 auto;
+        margin-bottom: 41px;
+        max-width: 285px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        opacity: 0.4;
+    }
+
+    &__btn {
+        position: relative;
+    }
+
+    &__back-arrow {
+        position: absolute;
+        left: 33px;
+        top: 20px;
+        transform: rotate(180deg);
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            transform: rotate(180deg)translateX(5px);
+        }
+    }
+}

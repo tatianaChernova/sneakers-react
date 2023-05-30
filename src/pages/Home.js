@@ -1,14 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Card from "../components/Card/Card";
+import slider from '../img/slider.png';
+import sliderLogo from '../img/slider-logo.png';
 import search from '../img/search.svg';
 import btnClear from '../img/btn-clear.svg';
 
 function Home({ items, searchValue, setSearchValue, onChangeSearchInput, onAddToCart, onAddToFavorite, isLoading }) {
 
     const renderItems = () => {
-
         const filteredItems = items.filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()));
-
         return (isLoading ? [...Array(8).fill(<Card loading={isLoading} />)] : filteredItems).map((item, index = 0) => {
             return (
                 <Card
@@ -28,6 +29,17 @@ function Home({ items, searchValue, setSearchValue, onChangeSearchInput, onAddTo
     return (
         <>
             <div className="content">
+                <div className="slider__wrapper">
+                    <div className="slider__left">
+                        <img className="slider__logo" src={sliderLogo} alt="logo" />
+                        <h2 className="slider__title">Stan Smith, <span>Forever!</span></h2>
+                        <Link to="/sneakers-react/favorites">
+                            <button className="green-btn slider__btn" type="submit">Купить</button>
+                        </Link>
+                    </div>
+                    <img src={slider} alt="Slider" />
+                </div>
+
                 <div className="content__top">
                     <h1 className="content__title">{searchValue ? `Поиск по запросу: "${searchValue}"` : `Все кроссовки`}</h1>
                     <div className="content__search">

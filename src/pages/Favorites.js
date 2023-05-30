@@ -1,20 +1,21 @@
 import React from 'react';
 import Card from "../components/Card/Card";
 import AppContext from '../context';
-import EmptyPage from '../components/EmptyPage/EmptyPage';
-import noFavorite from '../img/no-fav.jpg';
+//import EmptyPage from '../components/EmptyPage/EmptyPage';
+//import noFavorite from '../img/no-fav.jpg';
 
 function Favorites() {
     const { favorites, onAddToFavorite, onAddToCart } = React.useContext(AppContext);
 
     const renderFavorites = () => {
-        return (favorites ?
-            <EmptyPage
-                title="Закладок нет :("
-                description="Вы ничего не добавляли в закладки"
-                image={noFavorite}
-            />
-            :
+        return (
+            // favorites ?
+            // <EmptyPage
+            //     title="Закладок нет :("
+            //     description="Вы ничего не добавляли в закладки"
+            //     image={noFavorite}
+            // />
+            // :
             favorites.map((item, index = 0) => {
                 return (
                     <Card

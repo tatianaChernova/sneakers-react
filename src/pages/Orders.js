@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import Card from "../components/Card/Card";
-import EmptyPage from '../components/EmptyPage/EmptyPage';
-import noOrders from '../img/no-orders.png';
+//import EmptyPage from '../components/EmptyPage/EmptyPage';
+//import noOrders from '../img/no-orders.png';
 
 function Orders() {
     const [orders, setOrders] = React.useState([]);
@@ -20,27 +20,25 @@ function Orders() {
             }
         })();
     }, []);
-    console.log(orders);
-    console.log(isLoading);
 
-    const renderOrders = () => {
+    // const renderOrders = () => {
 
-        return (
-            isLoading ? [...Array(8).fill(<Card loading={isLoading} />)] : orders)
-            .map((item, index = 0) => {
-                return (
-                    <Card
-                        key={index}
-                        index={index}
-                        id={item.id}
-                        name={item.name}
-                        price={item.price}
-                        image={item.image}
-                        loading={isLoading}
-                    />);
-            })
-    }
-    //console.log(renderOrders());
+    //     return (
+    //         isLoading ? [...Array(8).fill(<Card loading={isLoading} />)] : orders)
+    //         .map((item, index = 0) => {
+    //             return (
+    //                 <Card
+    //                     key={index}
+    //                     index={index}
+    //                     id={item.id}
+    //                     name={item.name}
+    //                     price={item.price}
+    //                     image={item.image}
+    //                     loading={isLoading}
+    //                 />);
+    //         })
+    // }
+
     return (
         <>
             <div className="content">
@@ -49,18 +47,24 @@ function Orders() {
                 </div>
                 <div className="content__cards">
                     {
-                        orders ?
-                            <EmptyPage
-                                title="У вас нет заказов"
-                                description="Оформите хотя бы один заказ"
-                                image={noOrders}
-                            />
-                            :
-                            <>
-                                {renderOrders()}
-                            </>
-
-                    }
+                        (isLoading ? [...Array(8).fill(<Card loading={isLoading} />)] : orders).map((item, index = 0) => {
+                            return (
+                                <Card
+                                    key={index}
+                                    index={index}
+                                    id={item.id}
+                                    name={item.name}
+                                    price={item.price}
+                                    image={item.image}
+                                    loading={isLoading}
+                                />);
+                        })}
+                    {/* orders ?
+                    <EmptyPage
+                        title="У вас нет заказов"
+                        description="Оформите хотя бы один заказ"
+                        image={noOrders}
+                    /> : <>{renderOrders()}</> */}                    
 
                 </div>
             </div>

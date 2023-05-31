@@ -10,11 +10,14 @@ import './styles.scss';
 function Header(props) {
 
     const { totalPrice } = useCart();
+    const [click, setClick] = React.useState(false);
+    const handleClick = () => setClick(!click);
+    const closeMobileMenu = () => setClick(false);   
 
     return (
         <header className="header">
             <div className="header__left">
-                <Link to="/sneakers-react">
+                <Link to="/sneakers-react" onClick={closeMobileMenu}>
                     <img className="header__logo" src={logo} alt="Logo" />
                 </Link>
                 <div className="header__info">
@@ -26,20 +29,25 @@ function Header(props) {
                     </p>
                 </div>
             </div>
+            <div className="header__menu-icon" onClick={handleClick}>
 
+                <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+            </div>
 
-            <ul className="header__list">
+            <ul className={click ? 'header__list active' : 'header__list'}>
                 <li onClick={props.onClickCart} className="header__item">
-                    <img className="header__icon" src={cart} alt="Cart" />
-                    <span>{totalPrice} руб.</span>
+                    <Link className="header__link" onClick={closeMobileMenu}>
+                        <img className="header__icon" src={cart} alt="Cart" />
+                        <span>{totalPrice} руб.</span>
+                    </Link>
                 </li>
                 <li className="header__item">
-                    <Link to="/sneakers-react/favorites">
+                    <Link to="/sneakers-react/favorites" className="header__link" onClick={closeMobileMenu}>
                         <img className="header__icon" src={favorite} alt="Favorite" />
                     </Link>
                 </li>
                 <li className="header__item">
-                    <Link to="/sneakers-react/orders">
+                    <Link to="/sneakers-react/orders" className="header__link" onClick={closeMobileMenu}>
                         <img className="header__icon" src={user} alt="User" />
                     </Link>
                 </li>

@@ -54,7 +54,6 @@ body {
   &__wrapper {
     margin-bottom: 39px;
     display: flex;
-
   }
 
   &__left {
@@ -143,5 +142,52 @@ body {
   &__btn-img {
     width: 32px;
     height: 32px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .wrapper {
+    max-width: 95%;
+  }
+
+  .slider__wrapper {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .content {
+    &__top {
+      display: block;
+    }
+
+    &__title {
+      margin-bottom: 20px;
+    }
+
+
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .content {
+    &__title {
+      text-align: center;
+    }
+
+    &__search {
+      align-items: center;
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .content {
+    &__title {
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 36px;
+    }
   }
 }

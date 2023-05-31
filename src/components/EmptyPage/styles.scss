@@ -1,5 +1,5 @@
 .empty-page {
-  
+
     &__cart {
         margin-top: 45px;
         margin-bottom: 45px;
@@ -44,6 +44,51 @@
 
         &:hover {
             transform: rotate(180deg)translateX(5px);
+        }
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .empty-page {
+
+        &__cart {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        &__text {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .empty-page {
+
+        &__cart {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        &__text {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .empty-page {
+
+        &__title {
+            font-size: 20px;
+        }
+
+        &__text {
+            font-size: 16px;
+        }
+
+        &__back-arrow {
+            left: 25px;
         }
     }
 }
